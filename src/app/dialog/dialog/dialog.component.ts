@@ -18,8 +18,9 @@ export class DialogComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      task: ['', Validators.required],
+      task: [''],
       valuePriority: [''],
+      completed: [],
     });
   }
 
@@ -30,7 +31,9 @@ export class DialogComponent implements OnInit {
   addTask() {
     let val = this.form.get('task') as FormControl;
     let valTtwo = this.form.get('valuePriority') as FormControl;
-    console.log(val.value, valTtwo.value);
+    let valThree = this.form.get('completed') as FormControl;
+    console.log(val.value, valTtwo.value, valThree.value);
+    this.form.reset();
   }
 
   getTodo(): Todo[] {
@@ -41,5 +44,9 @@ export class DialogComponent implements OnInit {
         todoValueComplete: false,
       },
     ];
+  }
+
+  completed(todo: Todo) {
+    todo.todoValueComplete = !todo.todoValueComplete;
   }
 }
