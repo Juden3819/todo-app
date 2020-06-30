@@ -23,7 +23,7 @@ export class DialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log((this.todoValue = this.getTodo()));
+    this.todoValue = this.getTodo();
   }
 
   addTask() {
@@ -35,7 +35,7 @@ export class DialogComponent implements OnInit {
     return [
       {
         todoValue: '',
-        todoValueColor: ['red', 'yellow', 'green'],
+        todoValueColor: ['level-1', 'level-2', 'level-3'],
         todoValueComplete: false,
       },
     ];
