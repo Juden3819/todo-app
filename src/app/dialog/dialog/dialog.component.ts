@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-dialog',
@@ -8,11 +14,21 @@ import { Todo } from 'src/app/interfaces/todo';
 })
 export class DialogComponent implements OnInit {
   todoValue: Todo[];
+  form: FormGroup;
 
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {
+    this.form = formBuilder.group({
+      task: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     console.log((this.todoValue = this.getTodo()));
+  }
+
+  addTask() {
+    let val = this.form.get('task') as FormControl;
+    console.log(val.value);
   }
 
   getTodo(): Todo[] {
