@@ -19,6 +19,7 @@ export class DialogComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       task: ['', Validators.required],
+      valuePriority: [''],
     });
   }
 
@@ -28,14 +29,15 @@ export class DialogComponent implements OnInit {
 
   addTask() {
     let val = this.form.get('task') as FormControl;
-    console.log(val.value);
+    let valTtwo = this.form.get('valuePriority') as FormControl;
+    console.log(val.value, valTtwo.value);
   }
 
   getTodo(): Todo[] {
     return [
       {
         todoValue: '',
-        todoValueColor: ['level-1', 'level-2', 'level-3'],
+        todoValuePriority: ['level-1', 'level-2', 'level-3'],
         todoValueComplete: false,
       },
     ];

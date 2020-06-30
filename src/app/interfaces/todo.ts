@@ -1,5 +1,5 @@
 export interface Todo {
   todoValue: string;
-  todoValueColor: string[];
+  todoValuePriority: string[];
   todoValueComplete: boolean;
 }
