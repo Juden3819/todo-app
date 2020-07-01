@@ -11,18 +11,14 @@
         <mat-label>priority level</mat-label>
         <mat-select formControlName="valuePriority">
           <mat-option
-            *ngFor="let item of props.todoValuePriority"
-            [ngClass]="item"
-            [value]="item"
-            >{{ item }}</mat-option
-          >
-        </mat-select></mat-form-field
-      >
+                      *ngFor="let item of props.todoValuePriority"
+                      [ngClass]="item"
+                      [value]="item">{{ item }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </mat-card-content>
     <mat-card-content>
-      <mat-checkbox formControlName="completed" (click)="completed(props)"
-        >completed</mat-checkbox
-      >
+      <mat-checkbox formControlName="completed" (click)="completed(props)">completed</mat-checkbox>
     </mat-card-content>
     <mat-card-actions>
       <button mat-flat-button (click)="addTask()">add</button>

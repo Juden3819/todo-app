@@ -1,0 +1,23 @@
+
+@mixin title {
+  text-align: center;
+  font-size: 15px;
+}
+
+@mixin todo {
+  @include title;
+  background-color: rgb(240, 173, 78);
+}
+
+@mixin in-progress {
+  @include title;
+  background-color: rgb(92, 184, 92);
+
+}
+
+@mixin ready-for-code-review {
+  @include title;
+  background-color: rgb(168, 214, 149);
+}
+
+//todo vm ref
