@@ -1,0 +1,28 @@
+@import '../../../styles/mixins';
+
+.todo-list {
+  &__container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__table{
+    text-align: center;
+    height: 400px;
+    width: 300px;
+  }
+  &__title{
+    &__todo{
+      @include todo;
+    }
+    &__in-progress{
+      @include in-progress;
+    }
+    &__ready-for-code-review{
+      @include ready-for-code-review;
+
+    }
+
+  }
+}
+//todo vm add line in completed values

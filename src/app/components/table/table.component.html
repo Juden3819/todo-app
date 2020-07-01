@@ -1,0 +1,97 @@
+<!-- <div class="todo-list__container">
+  <div
+       cdkDropList
+       #todoTab="cdkDropList"
+       [cdkDropListData]="todo"
+       [cdkDropListConnectedTo]="[inProgressTab, completedTab]"
+       (cdkDropListDropped)="drop($event)">
+    <h2>todo</h2>
+    <div *ngFor="let todoVals of todo" cdkDrag>{{todoVals}}</div>
+  </div>
+
+  <div
+       cdkDropList
+       #inProgressTab="cdkDropList"
+       [cdkDropListData]="inProgress"
+       [cdkDropListConnectedTo]="[todoTab, completedTab]"
+       (cdkDropListDropped)="drop($event)">
+    <h2>in progress</h2>
+    <div *ngFor="let progressVal of inProgress" cdkDrag>{{progressVal}}</div>
+  </div>
+
+  <div
+       cdkDropList
+       #completedTab="cdkDropList"
+       [cdkDropListData]="completedVal"
+       [cdkDropListConnectedTo]="[inProgressTab, todoTab]"
+       (cdkDropListDropped)="drop($event)">
+    <h2>completed</h2>
+
+    <div *ngFor="let completedVals of completedVal" cdkDrag>{{completedVals}}</div>
+  </div> -->
+<mat-card>
+  <mat-card-content>
+    <div class="todo-list__container">
+      <mat-card class="todo-list__table">
+        <mat-card-title class="todo-list__title__todo">TODO</mat-card-title>
+        <mat-card-content>
+          <div
+               class="todo-list__table"
+
+               cdkDropList
+               #todoTab="cdkDropList"
+               [cdkDropListData]="todo"
+               [cdkDropListConnectedTo]="[inProgressTab, completedTab, todoTab, readyForCodeReviewTab]"
+               (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let todoVals of todo" cdkDrag>{{todoVals}}</div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title class="todo-list__title__in-progress">in-progress</mat-card-title>
+        <mat-card-content>
+          <div
+               class="todo-list__table"
+               cdkDropList
+               #inProgressTab="cdkDropList"
+               [cdkDropListData]="inProgress"
+               [cdkDropListConnectedTo]="[todoTab, completedTab, readyForCodeReviewTab]"
+               (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let inProgressVals of inProgress" cdkDrag>{{inProgressVals}}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title class="todo-list__title__ready-for-code-review">ready-for-code-review</mat-card-title>
+        <mat-card-content>
+          <div
+               class="todo-list__table"
+               cdkDropList
+               #readyForCodeReviewTab="cdkDropList"
+               [cdkDropListData]="readyForCodeReview"
+               [cdkDropListConnectedTo]="[todoTab, inProgressTab, completedTab]"
+               (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let readyForCodeReviewVals of readyForCodeReview" cdkDrag>{{readyForCodeReviewVals}}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title class="todo-list__title__completed">completed</mat-card-title>
+        <mat-card-content>
+          <div
+               class="todo-list__table"
+               cdkDropList
+               #completedTab="cdkDropList"
+               [cdkDropListData]="completedVal"
+               [cdkDropListConnectedTo]="[todoTab, inProgressTab, readyForCodeReviewTab]"
+               (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let completedValues of completedVal" cdkDrag>{{completedValues}}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>
