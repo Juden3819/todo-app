@@ -72,7 +72,7 @@
                [cdkDropListData]="readyForCodeReview"
                [cdkDropListConnectedTo]="[todoTab, inProgressTab, completedTab]"
                (cdkDropListDropped)="drop($event)">
-            <div *ngFor="let completedValues of completedVal" cdkDrag>{{completedValues}}</div>
+            <div *ngFor="let readyForCodeReviewVals of readyForCodeReview" cdkDrag>{{readyForCodeReviewVals}}</div>
           </div>
         </mat-card-content>
       </mat-card>
