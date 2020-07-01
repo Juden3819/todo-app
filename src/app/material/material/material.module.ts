@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 const materialComponents = [
   MatFormFieldModule,
   MatSelectModule,
@@ -13,10 +13,11 @@ const materialComponents = [
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
+  MatExpansionModule
 ];
 
 @NgModule({
   exports: [materialComponents],
   imports: [materialComponents],
 })
-export class MaterialModule {}
+export class MaterialModule { }

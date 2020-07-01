@@ -1,0 +1,16 @@
+{
+  "todoList": [
+    {
+      "taskCategory": "frontend",
+      "taskTitle": "fix a bug",
+      "taskDescription": "we have a bug with drag and drop in todo table, fix it",
+      "taskCompleted": false
+    },
+    {
+      "taskCategory": "back-end",
+      "taskTitle": "send data",
+      "taskDescription": "send data from back-end",
+      "taskCompleted": false
+    }
+  ]
+}

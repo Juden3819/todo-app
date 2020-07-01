@@ -1,5 +1,7 @@
+import { Task } from './../../classes/taks';
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { HttpClientService } from 'src/app/services/http-client.service';
 
 @Component({
   selector: 'app-table',
@@ -7,23 +9,19 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  // todo vm add filter by priority;
 
-  // todo vm  refactoring this component
-  todo = [
-    'front: todo fix bugs',
-    'front: change background',
-    'front: change font size',
-  ];
+  tasks: Task[] = [];
+  task: string;
 
-  inProgress = [
-  ];
-  readyForCodeReview = [];
-  completedVal = [];
+  constructor(private httpClientService: HttpClientService) { }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.httpClientService.getData().subscribe(task => this.tasks = task);
+  }
 
-  ngOnInit(): void { }
+  addTask(task: string) {
+
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
