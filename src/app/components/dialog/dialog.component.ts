@@ -6,6 +6,7 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { HttpClientService } from 'src/app/services/http-client.service';
 
 @Component({
   selector: 'app-dialog',
@@ -15,8 +16,9 @@ import {
 export class DialogComponent implements OnInit {
   todoValue: Todo[];
   form: FormGroup;
+  task: Todo;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private httpService: HttpClientService) {
     this.form = formBuilder.group({
       task: [''],
       valuePriority: [''],
@@ -25,7 +27,7 @@ export class DialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.todoValue = this.getTodo();
+
   }
 
   addTask() {
@@ -36,17 +38,7 @@ export class DialogComponent implements OnInit {
     this.form.reset();
   }
 
-  getTodo(): Todo[] {
-    return [
-      {
-        todoValue: '',
-        todoValuePriority: ['level-1', 'level-2', 'level-3'],
-        todoValueComplete: false,
-      },
-    ];
-  }
+  // completed(todo: Todo) {
+  // }
 
-  completed(todo: Todo) {
-    todo.todoValueComplete = !todo.todoValueComplete;
-  }
 }

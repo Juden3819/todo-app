@@ -1,5 +1,7 @@
 export interface Todo {
-  todoValue: string;
-  todoValuePriority: string[];
-  todoValueComplete: boolean;
+  taskCategory: string;
+  taskTitle: string;
+  taskDescription: string;
+  taskPriority: number;
+  taskCompleted: boolean;
 }
