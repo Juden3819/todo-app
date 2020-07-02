@@ -1,19 +1,45 @@
-<mat-form-field class="todo-list__container">
-  <input matInput type="text" [(ngModel)]="newTask.taskCategory">
-</mat-form-field>
+<mat-card>
+  <mat-card-content class="todo-list__container">
+    <mat-form-field>
+      <mat-label>title</mat-label>
+      <input matInput type="text" [(ngModel)]="newTask.taskTitle">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>description</mat-label>
+      <textarea matInput type="text" [(ngModel)]="newTask.taskDescription"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>category</mat-label>
+      <input matInput type="text" [(ngModel)]="newTask.taskCategory">
+    </mat-form-field>
+    <mat-checkbox class="todo-list__checkbox" [(ngModel)]="newTask.taskCompleted">completed</mat-checkbox>
+  </mat-card-content>
+</mat-card>
 
 <button mat-raised-button (click)="addTask()">add todo</button>
 
 <mat-accordion multi>
   <mat-expansion-panel *ngFor="let task of tasks">
     <mat-expansion-panel-header>
-      <mat-panel-title>{{task.taskCategory}}</mat-panel-title>
+      <mat-panel-title>
+        <mat-checkbox class="todo-list__checkbox" [(ngModel)]="newTask.taskCompleted"></mat-checkbox>
+
+        {{task.taskCategory}}
+      </mat-panel-title>
       <mat-panel-description>{{task.taskTitle}}</mat-panel-description>
     </mat-expansion-panel-header>
-    {{task.taskDescription}}
+    <div class="todo-list__task">
+      <mat-form-field appearance="fill" class="todo-list__task__todo">
+        <input matInput [(ngModel)]="task.taskCategory">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="todo-list__task__todo">
+        <textarea matInput type="text" [(ngModel)]="task.taskDescription"></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="todo-list__task__todo">
+        <input matInput [(ngModel)]="task.taskTitle">
+      </mat-form-field>
+    </div>
+    <mat-icon (click)="editPost(task.id, task)">edit</mat-icon>
     <mat-icon (click)="deleteTask(task.id)">delete todo</mat-icon>
-    <input matInput [(ngModel)]="task.taskCategory">
-    <!-- <mat-icon (click)="editTask(task.id, task)">edit</mat-icon> -->
-
   </mat-expansion-panel>
 </mat-accordion>

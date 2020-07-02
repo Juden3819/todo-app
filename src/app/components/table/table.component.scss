@@ -11,18 +11,18 @@
     height: 400px;
     width: 300px;
   }
-  &__title{
-    &__todo{
-      @include todo;
-    }
-    &__in-progress{
-      @include in-progress;
-    }
-    &__ready-for-code-review{
-      @include ready-for-code-review;
-
-    }
-
+  &__checkbox{
+    margin-top: auto;
   }
+
+  &__task{
+    display: flex;
+    justify-content: center;
+
+    &__todo{
+      margin: 5px;
+    }
+  }
+
+
 }
-//todo vm add line in completed values
