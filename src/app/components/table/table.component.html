@@ -2,7 +2,7 @@
   <mat-card-content class="todo-list__container">
     <mat-form-field>
       <mat-label>title</mat-label>
-      <input matInput type="text" [(ngModel)]="newTask.taskTitle">
+      <input matInput type="text" required #title="ngModel" [(ngModel)]="newTask.taskTitle">
     </mat-form-field>
     <mat-form-field>
       <mat-label>description</mat-label>
@@ -16,17 +16,19 @@
   </mat-card-content>
 </mat-card>
 
-<button mat-raised-button (click)="addTask()">add todo</button>
+<button mat-raised-button [disabled]="title.invalid" (click)="addTask()">add todo</button>
 
 <mat-accordion multi>
   <mat-expansion-panel *ngFor="let task of tasks">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <mat-checkbox class="todo-list__checkbox" [(ngModel)]="newTask.taskCompleted"></mat-checkbox>
-
+        <mat-checkbox class="todo-list__checkbox" (ngModelChange)="isTaskCompleted(task)"
+                      [(ngModel)]="task.taskCompleted">
+        </mat-checkbox>
         {{task.taskCategory}}
       </mat-panel-title>
       <mat-panel-description>{{task.taskTitle}}</mat-panel-description>
+      <div [ngClass]="task.taskCompleted ? 'light__ready' : 'light__process'"></div>
     </mat-expansion-panel-header>
     <div class="todo-list__task">
       <mat-form-field appearance="fill" class="todo-list__task__todo">
@@ -42,4 +44,5 @@
     <mat-icon (click)="editPost(task.id, task)">edit</mat-icon>
     <mat-icon (click)="deleteTask(task.id)">delete todo</mat-icon>
   </mat-expansion-panel>
+
 </mat-accordion>

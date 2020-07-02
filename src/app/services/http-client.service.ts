@@ -20,7 +20,7 @@ export class HttpClientService {
     const headers = { 'content-type': 'application/json' };
     const body = JSON.stringify(task);
 
-    return this.http.post(this.url + 'todoList', body, { headers });
+    return this.http.post(this.url + 'todoList', body);
   }
 
   deleteTask(id: any): Observable<any> {

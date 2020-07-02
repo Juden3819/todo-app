@@ -23,6 +23,24 @@
       margin: 5px;
     }
   }
+}
 
+.light__process{
+    margin: 20px ;
+    width: 5px;
+    height: 5px;
+    background-color: #940;
+    border-radius: 50%;
+    filter: brightness(200%);
+    box-shadow: #000 0 -1px 7px 1px, inset #600 0 -1px 9px, #F00 0 2px 12px;
 
+}
+.light__ready{
+  margin: 20px ;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(197, 255, 80);
+    border-radius: 50%;
+    filter: brightness(200%);
+    box-shadow: #000 0 -1px 7px 1px, inset rgb(219, 255, 146) 0 -1px 9px, rgb(217, 255, 174) 0 2px 12px;
 }
