@@ -13,11 +13,17 @@ export class TableComponent implements OnInit {
   tasks: Task[] = [];
   newTask: Task = new Task();
   task: string;
+  light: string;
 
   constructor(private httpClientService: HttpClientService) { }
 
   ngOnInit(): void {
     this.getTask();
+
+  }
+
+  isTaskCompleted(task: Task) {
+    task.taskCompleted = !task.taskCompleted;
   }
 
   getTask() {

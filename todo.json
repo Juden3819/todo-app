@@ -32,7 +32,7 @@
     {
       "taskTitle": "Angular Rxjs curses",
       "taskDescription": "5/10/2020",
-      "taskCategory": "React js courses",
+      "taskCategory": "React js coursessad",
       "id": 7
     },
     {
@@ -40,6 +40,12 @@
       "taskDescription": "description",
       "taskCategory": "front",
       "id": 8
+    },
+    {
+      "taskDescription": "asdasd",
+      "taskCategory": "asds",
+      "taskTitle": "asa",
+      "id": 9
     }
   ]
 }
