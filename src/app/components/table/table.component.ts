@@ -11,17 +11,39 @@ import { HttpClientService } from 'src/app/services/http-client.service';
 export class TableComponent implements OnInit {
 
   tasks: Task[] = [];
+  newTask: Task = new Task();
   task: string;
 
   constructor(private httpClientService: HttpClientService) { }
 
   ngOnInit(): void {
+    this.getTask();
+  }
+
+  getTask() {
     this.httpClientService.getData().subscribe(task => this.tasks = task);
   }
 
-  addTask(task: string) {
+  addTask() {
 
+    this.httpClientService.postTask(this.newTask).subscribe(() => {
+      this.httpClientService.getData().subscribe(task => this.tasks = task);
+    }
+    );
+    this.newTask.taskCategory = '';
   }
+
+  deleteTask(id: any) {
+    this.httpClientService.deleteTask(id).subscribe(() => {
+      this.getTask();
+    });
+  }
+
+  // editTask(id: any, task: Task) {
+  //   this.httpClientService.editTask(id, task.taskCategory).subscribe(() => {
+  //     this.getTask();
+  //   });
+  // }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

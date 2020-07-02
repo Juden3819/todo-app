@@ -1,4 +1,3 @@
-import { DialogComponent } from './components/dialog/dialog.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +11,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, DialogComponent, TableComponent],
+  declarations: [AppComponent, TableComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
