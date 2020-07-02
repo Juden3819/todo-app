@@ -1,8 +1,8 @@
 <mat-form-field class="todo-list__container">
-  <input matInput type="text" [(ngModel)]="task">
+  <input matInput type="text" [(ngModel)]="newTask.taskCategory">
 </mat-form-field>
 
-<button mat-raised-button (click)="addTask(task)">add todo</button>
+<button mat-raised-button (click)="addTask()">add todo</button>
 
 <mat-accordion multi>
   <mat-expansion-panel *ngFor="let task of tasks">
@@ -11,5 +11,9 @@
       <mat-panel-description>{{task.taskTitle}}</mat-panel-description>
     </mat-expansion-panel-header>
     {{task.taskDescription}}
+    <mat-icon (click)="deleteTask(task.id)">delete todo</mat-icon>
+    <input matInput [(ngModel)]="task.taskCategory">
+    <!-- <mat-icon (click)="editTask(task.id, task)">edit</mat-icon> -->
+
   </mat-expansion-panel>
 </mat-accordion>

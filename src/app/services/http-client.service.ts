@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
-import { Todo } from '../interfaces/todo';
 import { Task } from '../classes/taks';
 
 @Injectable({
@@ -10,14 +9,29 @@ import { Task } from '../classes/taks';
 })
 export class HttpClientService {
 
-  url = '/assets/todo.json';
+  url = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
   getData(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.url).pipe(pluck('todoList'));
+    return this.http.get<Task[]>(this.url + 'todoList');
   }
 
-  // postData(value: string, taks: Ta) {
-  //   return this.http.post(this.url, value);
+  postTask(task: Task) {
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(task);
+
+    return this.http.post(this.url + 'todoList', body, { headers });
+  }
+
+  deleteTask(id: any): Observable<any> {
+    const endpoint = 'todoList/';
+
+    return this.http.delete(this.url + endpoint + id);
+  }
+
+  // editTask(task: Task, id: any) {
+  //   const endpoint = 'todoList/';
+
+  //   return this.http.put(this.url + endpoint + id, task);
   // }
 }
