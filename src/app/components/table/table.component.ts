@@ -31,6 +31,8 @@ export class TableComponent implements OnInit {
     }
     );
     this.newTask.taskCategory = '';
+    this.newTask.taskDescription = '';
+    this.newTask.taskTitle = '';
   }
 
   deleteTask(id: any) {
@@ -39,11 +41,11 @@ export class TableComponent implements OnInit {
     });
   }
 
-  // editTask(id: any, task: Task) {
-  //   this.httpClientService.editTask(id, task.taskCategory).subscribe(() => {
-  //     this.getTask();
-  //   });
-  // }
+  editPost(id: any, task: Task) {
+    this.httpClientService.editTask(id, task).subscribe(() => {
+      this.getTask();
+    })
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

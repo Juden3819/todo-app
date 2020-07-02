@@ -29,9 +29,9 @@ export class HttpClientService {
     return this.http.delete(this.url + endpoint + id);
   }
 
-  // editTask(task: Task, id: any) {
-  //   const endpoint = 'todoList/';
+  editTask(id: any, task: Task) {
+    let endpoint = `todoList/${id}`;
 
-  //   return this.http.put(this.url + endpoint + id, task);
-  // }
+    return this.http.put(this.url + endpoint, task);
+  }
 }
